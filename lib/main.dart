@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
 
   var _corTextos = Colors.black;
 
-  var _corAtual = Color.fromRGBO(250, 250 ,250 , 1);
+  
 
   List _cores = [
     Color.fromRGBO(250, 250 ,250 , 1),
@@ -156,8 +157,134 @@ class _HomeState extends State<Home> {
 
   ];
 
-  List _nomes = [
-
+  List <String> _nomes = [
+    'Snow',
+    'Ghost white',
+    'White Smoke',
+    'Gainsboro',
+    'FloralWhite',
+    'OldLace',
+    'Linen',
+    'Antique White',
+    'Papayawhip',
+    'Blanched Almond',
+    'Bisque',
+    'PeachPuff',
+    'NavajoWhite',
+    'Moccasin',
+    'Cornsilk',
+    'Ivory',
+    'LemonChiffon',
+    'Seashell',
+    'Honeydew',
+    'MintCream',
+    'Azure',
+    'AliceBlue',
+    'lavender',
+    'LavenderBlush',
+    'MistyRose',
+    'White',
+    'Black',
+    'DarkSlateGray',
+    'DimGrey',
+    'SlateGrey,'
+    'LightSlateGray',
+    'Grey',
+    'LightGray',
+    "MidnightBlue",
+    "NavyBlue",
+    "Cornflower Blue",
+    "Dark Slate Blue",
+    "Slat eBlue",
+    "Medium Slate Blue",
+    "Light Slate Blue",
+    "Medium Blue",
+    "Royal Blue",
+    "Blue",
+    "Dodger Blue",
+    "Deep Sky Blue",
+    "SkyBlue",
+    "Light Sky Blue",
+    "Steel Blue",
+    "Light Steel Blue",
+    "Light Blue",
+    "Poweder Blue",
+    "Pale Turquoise",
+    "Dark Turquoise",
+    "Medium Turquoise",
+    "Turquoise",
+    "Cyan",
+    "Light Cyan",
+    "Cadet Blute",
+    "Medium Aquamarine",
+    "Aquamarine",
+    "Dark Green",
+    "Dark Olive Green",
+    "Dark Sea Green",
+    "Sea Green",
+    "Medium Sea Green",
+    "Light Sea Green",
+    "Pale Green",
+    "Spring Green",
+    "Lawn Green",
+    "Green",
+    "Chartreuse",
+    "Med Spring Green",
+    "Green Yellow",
+    "Lime Green",
+    "Yellow Green",
+    "Forest Green",
+    "Olive Drab",
+    "Dark Khaki",
+    "Pale Goldenrod",
+    "Lt Goldenrod Yello",
+    "Light Yellow",
+    "Yellow",
+    "Gold",
+    "Light Goldenrod",
+    "Rosy Brown",
+    "Indian Red",
+    "Saddle Brown",
+    "Sienna",
+    "Peru",
+    "Burlywood",
+    "Beige",
+    "Wheat",
+    "Sandy Brown",
+    "Tan",
+    "Chocolate",
+    "Firebrick",
+    "Brown",
+    "Dark Salmon",
+    "Salmon",
+    "Light Salmon",
+    "Orange",
+    "Dark Orange",
+    "Coral",
+    "Light Coral",
+    "Tomato",
+    "Orange Red",
+    "Red",
+    "Hot Pink",
+    "Deep Pink",
+    "Pink",
+    "Light Pink",
+    "Pale Violet Red",
+    "Maroon",
+    "Medium Violet Red",
+    "Violet Red",
+    "Magenta",
+    "Violet",
+    "Plum",
+    "Orchid",
+    "Medium Orchid",
+    "Dark Orchid",
+    "Dark Violet",
+    "BLue Violet",
+    "Purple",
+    "MEdium Purple",
+    "Thistle",
+    "Snow 1",
   ];
 
   List _valorHex = [
@@ -169,6 +296,8 @@ class _HomeState extends State<Home> {
   ];
 
   int _numCor = 0;
+  var _corAtual = Color.fromRGBO(250, 250 ,250 , 1);
+  var _nomeCor = "Snow";
 
   @override
   Widget build(BuildContext context) {
@@ -198,6 +327,9 @@ class _HomeState extends State<Home> {
 
                         if(_numCor == 26) _corTextos = Colors.white;
                         else _corTextos = Colors.black;
+
+                        _nomeCor = _nomes[_numCor];
+
                       });
                     },
 
@@ -215,6 +347,9 @@ class _HomeState extends State<Home> {
 
                         if(_numCor == 26) _corTextos = Colors.white;
                         else _corTextos = Colors.black;
+
+                        _nomeCor = _nomes[_numCor];
+
                       });
                     },
 
@@ -229,7 +364,7 @@ class _HomeState extends State<Home> {
                   children: <Widget> [                      
 
                     Text(
-                      "Nome: ",
+                      "Nome: $_nomeCor",
                       style: TextStyle(
                         color: _corTextos,
                         fontSize: 25,
