@@ -19,7 +19,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  var _corPadrao = Color.fromARGB(255, 109, 47, 224);
+  var _corTextos = Colors.black;
+
+  var _corAtual = Color.fromRGBO(250, 250 ,250 , 1);
 
   List _cores = [
     Color.fromRGBO(250, 250 ,250 , 1),
@@ -63,7 +65,7 @@ class _HomeState extends State<Home> {
     Color.fromRGBO(123 ,104 ,238 , 1),
     Color.fromRGBO(132 ,112 ,255 , 1),
     Color.fromRGBO(0   ,0  ,205 , 1),
-   Color.fromRGBO(65  ,105 ,225 , 1),
+    Color.fromRGBO(65  ,105 ,225 , 1),
     Color.fromRGBO(0   ,0   ,255 , 1),
     Color.fromRGBO(30  ,144 ,255 , 1),
     Color.fromRGBO(0   ,191 ,255 , 1),
@@ -154,43 +156,113 @@ class _HomeState extends State<Home> {
 
   ];
 
-  void _amuentaCor(){
-    for(int c = 0 ; c <= _cores.length ; c++){
-      var _corAtual = _cores[c];
-      
-    }
-  }
+  List _nomes = [
 
-  void _diminuiCor(){
-    for(int c = 0 ; c <= _cores.length ; c--){
-      var _corAtual = _cores[c];
-      
-    }
-  }
+  ];
+
+  List _valorHex = [
+
+  ];
+
+  List _valorRGB = [
+
+  ];
+
+  int _numCor = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _corPadrao,
+      backgroundColor: _cores[_numCor],
       body: Center(
           child: Column(
 
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,     
 
           children: <Widget> [
             
-            RaisedButton(
-              onPressed: () {
-                setState(() {
-                  _amuentaCor();
-                });
-              },
-              color: Colors.white,
-              child: Text(
-                "Clique em mim"
+            Container(
+              child: Column(
+                children: <Widget> [
+                  RaisedButton(                   
+                    color: Colors.white,
+                    child: Text(
+                      "Clique aqui para ir para a próxima cor "
+                      ),
+
+                      onPressed: () {
+                      setState(() {
+                        if(_numCor == 128) _numCor = 0;           
+                        else _numCor++;
+
+                        if(_numCor == 26) _corTextos = Colors.white;
+                        else _corTextos = Colors.black;
+                      });
+                    },
+
+                  ),
+                  RaisedButton(
+                    
+                    child: Text(
+                      "Clique aqui para voltar para última cor"
+                      ),
+
+                    onPressed: () {
+                      setState(() {
+                        if(_numCor == 0) _numCor = 128;
+                        else _numCor -= 1;
+
+                        if(_numCor == 26) _corTextos = Colors.white;
+                        else _corTextos = Colors.black;
+                      });
+                    },
+
+                    ),
+                ],
+              ),
+            ),
+           
+              Container(
+                child: Column(
+
+                  children: <Widget> [                      
+
+                    Text(
+                      "Nome: ",
+                      style: TextStyle(
+                        color: _corTextos,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
+                      )
+                      ),
+
+                    Padding(padding: EdgeInsets.all(16)), 
+
+                    Text(
+                      "Valor Hexadecimal: ",
+                       style: TextStyle(
+                        color: _corTextos,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
+                      )
+                      ),
+
+                    Padding(padding: EdgeInsets.all(16)), 
+
+                    Text(
+                      "Valor RGB",
+                       style: TextStyle(
+                        color: _corTextos,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
+                      )
+                      ),
+                  ],
                 ),
-            )
+
+              )
+
           ],
         ),
       )
