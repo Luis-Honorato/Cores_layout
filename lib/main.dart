@@ -187,7 +187,7 @@ class _HomeState extends State<Home> {
     'Black',
     'DarkSlateGray',
     'DimGrey',
-    'SlateGrey,'
+    'SlateGrey',
     'LightSlateGray',
     'Grey',
     'LightGray',
